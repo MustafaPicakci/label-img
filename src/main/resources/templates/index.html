@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <title>Phexum Image Labeller</title>
+    <meta charset="utf-8" />
+    <meta content="ie=edge" http-equiv="x-ua-compatible" />
+    <meta content="width=device-width, initial-scale=1" name="viewport" />
+    <link href="assets/img/favicon.png" rel="shortcut icon" />
+    <link href="apple-touch-icon.png" rel="apple-touch-icon" />
+    <link href="assets/js/select2/dist/css/select2.min.css" rel="stylesheet" />
+    <link href="assets/css/jquery/jquery-ui.css" rel="stylesheet">
+
+    <link href="assets/js/datatables.net-bs/css/dataTables.bootstrap.min.css" rel="stylesheet" />
+    <link href="assets/js/perfect-scrollbar/css/perfect-scrollbar.min.css" rel="stylesheet" />
+    <link href="assets/js/slick-carousel/slick/slick.css" rel="stylesheet" />
+    <link href="assets/css/ion.rangeSlider.css" rel="stylesheet" />
+    <link href="assets/css/main.css?version=4.4.0" rel="stylesheet" />
+    <link href="assets/icon_fonts_assets/font-awesome/css/font-awesome.min.css" rel="stylesheet">
+	<link href="assets/css/autocomplete.css" rel="stylesheet"/>
+	<link href="assets/css/backTop.css" rel="stylesheet">
+		
+	<script src="assets/js/jquery/dist/jquery.min.js"></script>	
+	<script src="/webjars/sockjs-client/sockjs.min.js"></script>
+    <script src="/webjars/stomp-websocket/stomp.min.js"></script>	
+    <script src="assets/js/main.js?version=4.4.0"></script>
+</head>
+
+<body class="menu-position-side menu-side-left full-screen with-content-panel">
+    <div id="app" class="all-wrapper with-side-panel solid-bg-all">
+    <a id='backTop'>Back To Top</a>
+    
+        <div class="layout-w">
+            <!--------------------
+        START - Main Menu
+        -------------------->
+            <div class="menu-w selected-menu-color-light menu-activated-on-hover menu-has-selected-link color-scheme-dark color-style-bright sub-menu-color-bright menu-position-side menu-side-left menu-layout-mini sub-menu-style-over">
+
+                <ul class="main-menu">
+                    <li>
+                        <router-link to="/">
+                              <div class="icon-w">                  
+                                <div class="os-icon os-icon-home"></div>
+                        </div> <span>Menu Styles</span>
+
+                        <div class="sub-menu-w" style="margin-top: 100px;">
+                            <div class="sub-menu-icon"><i class="os-icon os-icon-home"></i></div>
+                            <div class="sub-menu-i"></div>
+                        </div>
+                            <span>Dashboard</span> </router-link>
+                    </li>
+
+                    <li class="has-sub-menu">
+                        <div class="icon-w">
+                            <div class="os-icon os-icon-layers"></div>
+                        </div> <span>Menu Styles</span>
+
+                        <div class="sub-menu-w" style="margin-top: 80px;">
+
+                            <div class="sub-menu-header">Directory</div>
+                            <!--  ÜSTTEKİ KOD BUTON HOWER İLE AÇILDIĞINDA YANDA AÇILAN KISIMA BİR BAŞLIK OLUŞTURUYOR-->
+                            <div class="sub-menu-icon"><i class="os-icon os-icon-layers"></i></div>
+                            <div class="sub-menu-i">
+                                <ul class="sub-menu" style="margin-left: 20px;">
+                                    <li>
+                                        <form id="frm_directory" class="form-inline md-form form-md mt-3" action="#" >
+                                            <input id="directory" class="form-control form-control-sm ml-3 w-75" type="text" placeholder="Directory" aria-label="Directory" name="directory" required />
+                                        </form>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="has-sub-menu">
+                        <div class="icon-w">
+                            <div class="os-icon os-icon-search"></div>
+                        </div> <span>Menu Styles</span>
+
+                        <div class="sub-menu-w" style="margin-top: 100px;">
+                            <div class="sub-menu-icon"><i class="os-icon os-icon-search"></i></div>
+                            <div class="sub-menu-i">
+                                <ul class="sub-menu" style="margin-left: 27px;">
+                                    <li>
+                                        <form id="frm_tag" class="form-inline md-form form-md mt-3" action="#" th:action="@{/imgTags}" th:object="${tag}" method="post" >
+
+                                            <input class="form-control form-control-sm ml-3 w-75" type="text" placeholder="Search"  id="tag" aria-label="Search" name="tag" required />
+
+                                        </form>
+
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </li>
+                    <li >
+                        <router-link to="/settings">
+                            <div class="icon-w">
+
+                                <div class="os-icon os-icon-ui-46"></div>
+                            </div>
+                        </a> <span>Menu Styles</span>
+
+                        <div class="sub-menu-w" style="margin-top: 100px;">
+                            <div class="sub-menu-icon"><i class="os-icon os-icon-ui-46"></i></div>
+                            <div class="sub-menu-i"></div>
+                        </div>
+                    </li>
+
+                    <li class="has-sub-menu" style="height: 422px;"></li>
+
+                </ul>
+            </div>
+            <!--------------------
+        END - Main Menu
+        -------------------->
+
+            <div class="content-i">
+                <div class="content-box">
+                    <div class="row">
+                        <div class="col-lg-12" id="app">
+                            <div class="container">
+                                <router-view></router-view>
+									
+                            </div>
+                            
+                          
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="assets/js/vue.js"></script>
+    <script src="assets/js/vue-router.js"></script>
+    <script src="assets/js/popper.js/dist/umd/popper.min.js"></script>
+    <script src="assets/js/chart.js/dist/Chart.min.js"></script>
+    <script src="assets/js/select2/dist/js/select2.full.min.js"></script>
+    <script src="assets/js/jquery-bar-rating/dist/jquery.barrating.min.js"></script>
+    <script src="assets/js/bootstrap-validator/dist/validator.min.js"></script>
+    <script src="assets/js/bootstrap-daterangepicker/daterangepicker.js"></script>
+    <script src="assets/js/ion.rangeSlider/ion.rangeSlider.js"></script>
+    <script src="assets/js/datatables.net/js/jquery.dataTables.min.js"></script>
+    <script src="assets/js/datatables.net-bs/js/dataTables.bootstrap.min.js"></script>
+    <script src="assets/js/perfect-scrollbar/js/perfect-scrollbar.jquery.min.js"></script>
+    <script src="assets/js/tether/dist/js/tether.min.js"></script>
+    <script src="assets/js/slick-carousel/slick/slick.min.js"></script>
+    <script src="assets/js/bootstrap/js/dist/util.js"></script>
+    <script src="assets/js/bootstrap/js/dist/alert.js"></script>
+    <script src="assets/js/bootstrap/js/dist/button.js"></script>
+    <script src="assets/js/bootstrap/js/dist/carousel.js"></script>
+    <script src="assets/js/bootstrap/js/dist/collapse.js"></script>
+    <script src="assets/js/bootstrap/js/dist/dropdown.js"></script>
+    <script src="assets/js/bootstrap/js/dist/modal.js"></script>
+    <script src="assets/js/bootstrap/js/dist/tab.js"></script>
+    <script src="assets/js/bootstrap/js/dist/tooltip.js"></script>
+    <script src="assets/js/bootstrap/js/dist/popover.js"></script>
+    <script src="assets/js/sweetalert.js"></script>
+    
+    <script src="assets/js/jquery/dist/jquery-ui.min.js"></script>
+    <script src="assets/app/util/phexum_utils.js"></script>
+    <script src="assets/app/component/pagination.js"></script>
+
+    <script src="assets/app/imgByTag.js"></script>
+    <script src="assets/app/settings.js"></script>
+    <script src="assets/app/dashboard.js"></script>
+    <script src="assets/app/app.js"></script>
+    <script src="assets/js/autocomplete.js"></script>
+    <script src="assets/js/jquery.backTop.js"></script>
+    
+
+</body>
+
+</html>

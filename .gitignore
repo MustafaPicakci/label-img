@@ -1,0 +1,35 @@
+**/*.log
+*.class
+*.log
+*.lic
+**/*.lic
+
+scriptkiddy.db
+build/*
+
+*/target/**
+target/
+bin/
+*/.settings/**
+*/.DS_Store
+.DS_Store
+
+
+### STS ###
+.apt_generated
+.classpath
+.factorypath
+.project
+.settings
+.springBeans
+
+### IntelliJ IDEA ###
+.idea
+*.iws
+*.iml
+*.ipr
+
+*.sql
+*.sqlite
+*.db
+*/resources/*
