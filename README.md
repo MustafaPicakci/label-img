@@ -7,6 +7,7 @@ Bilgisayarınızda bulunan görsellere etiketler ekleyebildiğiniz, etiketleri a
 - Resize işlemleri farklı thread'lerde gerçekleştirilerek performans artışı sağlandı.
 - HikariCP ile connection pooling uygulandı.
 - Front-end ve back-end iletişimi ajax ve web socket ile sağlandı.
+- Vue-js kullanıldı.
 - Tüm görseller veri tabanında unique olarak saklandı.
 - Anasayfada sadece settings sayfasında **active** olarak belirtilen dizindeki görseller gösterildi
 
